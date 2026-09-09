@@ -13,7 +13,7 @@
  * 8. Paste the Web App URL in Nitya Patha App > Settings > Cloud Sync.
  */
 
-const SHEET_NAME = 'NityaPathaData';
+const SHEET_NAME = '17Lv8Ig6UGpR2zb-VXfB-rYVgk4zmnSyQi-zfk2Tdj5M';
 
 function doGet(e) {
   try {
