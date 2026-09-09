@@ -36,6 +36,7 @@ export class FamilyManager {
           lastActiveDate: null,
           progress: {
             bhagavad_gita: 0,
+            narayaneeyam: 0,
             vishnu_sahasranama: 0,
             lalita_sahasranama: 0,
             guru_gita: 0,
@@ -102,6 +103,7 @@ export class FamilyManager {
       lastActiveDate: null,
       progress: {
         bhagavad_gita: 0,
+        narayaneeyam: 0,
         vishnu_sahasranama: 0,
         lalita_sahasranama: 0,
         guru_gita: 0,

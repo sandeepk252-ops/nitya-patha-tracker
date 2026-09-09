@@ -1,4 +1,4 @@
-// Canonical Scripture Data for the 8 Sacred Sanskrit Texts (1,708 Shlokas Total)
+// Canonical Scripture Data for the 9 Sacred Sanskrit Texts (2,744 Shlokas Total)
 
 export const SCRIPTURES = [
   {
@@ -30,6 +30,29 @@ export const SCRIPTURES = [
       { num: 16, name: 'Daivasura Sampad Vibhaga Yoga', nameSanskrit: 'दैवासुरसम्पद्विभागयोग', shlokas: 24, startShloka: 571, endShloka: 594 },
       { num: 17, name: 'Shraddhatraya Vibhaga Yoga', nameSanskrit: 'श्रद्धात्रयविभागयोग', shlokas: 28, startShloka: 595, endShloka: 622 },
       { num: 18, name: 'Moksha Sanyasa Yoga', nameSanskrit: 'मोक्षसंन्यासयोग', shlokas: 78, startShloka: 623, endShloka: 700 }
+    ]
+  },
+  {
+    id: 'narayaneeyam',
+    title: 'Narayaneeyam',
+    titleDevanagari: 'श्रीनारायणीयम्',
+    shortTitle: 'Narayaneeyam',
+    subtitle: '100 Dasakams · 1,036 Shlokas (Melpathur Narayana Bhattathiri)',
+    category: 'Epic Scriptures',
+    totalShlokas: 1036,
+    icon: '🦚',
+    color: '#4f46e5', // indigo
+    chapters: [
+      { num: 1, name: 'Dasakams 1-10 (Form of the Lord & Creation)', nameSanskrit: 'दशकम् १-१० (ब्रह्मरूप-सर्ग वर्णन)', shlokas: 104, startShloka: 1, endShloka: 104 },
+      { num: 2, name: 'Dasakams 11-20 (Avatara Descriptions & Kapila)', nameSanskrit: 'दशकम् ११-२० (अवतार-वर्णनम्)', shlokas: 103, startShloka: 105, endShloka: 207 },
+      { num: 3, name: 'Dasakams 21-30 (Dhruva, Prithu & Churning Ocean)', nameSanskrit: 'दशकम् २१-३० (ध्रुव-समुद्रमन्थन)', shlokas: 104, startShloka: 208, endShloka: 311 },
+      { num: 4, name: 'Dasakams 31-40 (Narasimha, Vamana & Rama Avatara)', nameSanskrit: 'दशकम् ३१-४० (नृसिंह-वामन-रामावतार)', shlokas: 104, startShloka: 312, endShloka: 415 },
+      { num: 5, name: 'Dasakams 41-50 (Krishna Avatara & Child Leelas)', nameSanskrit: 'दशकम् ४१-५० (कृष्णावतार बाललीला)', shlokas: 103, startShloka: 416, endShloka: 518 },
+      { num: 6, name: 'Dasakams 51-60 (Kaliya Mardana & Goverdhana Lift)', nameSanskrit: 'दशकम् ५१-६० (कालियमर्दन-गोवर्धन)', shlokas: 104, startShloka: 519, endShloka: 622 },
+      { num: 7, name: 'Dasakams 61-70 (Rasa Leela & Mathura Departure)', nameSanskrit: 'दशकम् ६१-७० (रासक्रीडा-मथुरा गमन)', shlokas: 104, startShloka: 623, endShloka: 726 },
+      { num: 8, name: 'Dasakams 71-80 (Kamsa Vadha & Dwarka Leelas)', nameSanskrit: 'दशकम् ७१-८० (कंसवध-द्वारकालीला)', shlokas: 103, startShloka: 727, endShloka: 829 },
+      { num: 9, name: 'Dasakams 81-90 (Mahabharata & Kuchela Moksha)', nameSanskrit: 'दशकम् ८१-९० (कुचेलोपाख्यान)', shlokas: 104, startShloka: 830, endShloka: 933 },
+      { num: 10, name: 'Dasakams 91-100 (Keshadi Pada Varnanam & Ayur Arogya)', nameSanskrit: 'दशकम् ९१-१०० (केशादिपादवर्णनम्)', shlokas: 103, startShloka: 934, endShloka: 1036 }
     ]
   },
   {
@@ -164,4 +187,4 @@ export const SCRIPTURES = [
   }
 ];
 
-export const TOTAL_CURRICULUM_SHLOKAS = SCRIPTURES.reduce((acc, s) => acc + s.totalShlokas, 0); // 1,708
+export const TOTAL_CURRICULUM_SHLOKAS = SCRIPTURES.reduce((acc, s) => acc + s.totalShlokas, 0); // 2,744

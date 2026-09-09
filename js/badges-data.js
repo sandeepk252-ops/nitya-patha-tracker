@@ -2,14 +2,14 @@
 
 export const SACRED_LEVELS = [
   { level: 1, title: 'The Seeker of Wisdom', sanskrit: 'जिज्ञासु', translit: 'Jijñāsu', minShlokas: 1, icon: '🌿', desc: 'Awakened the desire for sacred wisdom with your very first shloka!' },
-  { level: 2, title: 'Diligent Practitioner', sanskrit: 'अभ्यासी', translit: 'Abhyāsī', minShlokas: 25, icon: '🪔', desc: 'Consistency rooted in regular practice. 25 sacred verses memorized!' },
-  { level: 3, title: 'Dedicated Chanter', sanskrit: 'साधक', translit: 'Sādhaka', minShlokas: 75, icon: '🕉️', desc: 'A committed student of holy vibration with 75 verses memorized!' },
-  { level: 4, title: 'Lover of Stotras', sanskrit: 'स्तोत्रप्रिय', translit: 'Stotra Priya', minShlokas: 150, icon: '🌸', desc: 'Deep devotion blooming in the heart with 150 verses memorized!' },
-  { level: 5, title: 'Bearer of Inner Light', sanskrit: 'ज्ञानदीपक', translit: 'Jñāna Dīpaka', minShlokas: 350, icon: '🕯️', desc: 'The lamp of sacred wisdom illuminates your mind with 350 verses!' },
-  { level: 6, title: 'Master of Sacred Eloquence', sanskrit: 'वाग्मी', translit: 'Vāgmī', minShlokas: 700, icon: '📿', desc: 'Mastery over the sacred sounds of Sanskrit with 700 verses!' },
-  { level: 7, title: 'Scholar of Sacred Texts', sanskrit: 'शास्त्रज्ञ', translit: 'Śāstrajña', minShlokas: 1100, icon: '📜', desc: 'Profound learning and sacred memory with 1,100 verses memorized!' },
-  { level: 8, title: 'Lion of Vedanta', sanskrit: 'वेदान्तकेसरी', translit: 'Vedānta Kesarī', minShlokas: 1500, icon: '🦁', desc: 'Unshakable spiritual strength and wisdom with 1,500 verses!' },
-  { level: 9, title: 'Master of Sacred Memory', sanskrit: 'कण्ठस्थ आचार्य', translit: 'Kaṇṭhastha Ācārya', minShlokas: 1708, icon: '👑', desc: 'Magnificent achievement! Complete memorization of all 1,708 sacred verses!' }
+  { level: 2, title: 'Diligent Practitioner', sanskrit: 'अभ्यासी', translit: 'Abhyāsī', minShlokas: 50, icon: '🪔', desc: 'Consistency rooted in regular practice. 50 sacred verses memorized!' },
+  { level: 3, title: 'Dedicated Chanter', sanskrit: 'साधक', translit: 'Sādhaka', minShlokas: 150, icon: '🕉️', desc: 'A committed student of holy vibration with 150 verses memorized!' },
+  { level: 4, title: 'Lover of Stotras', sanskrit: 'स्तोत्रप्रिय', translit: 'Stotra Priya', minShlokas: 350, icon: '🌸', desc: 'Deep devotion blooming in the heart with 350 verses memorized!' },
+  { level: 5, title: 'Bearer of Inner Light', sanskrit: 'ज्ञानदीपक', translit: 'Jñāna Dīpaka', minShlokas: 700, icon: '🕯️', desc: 'The lamp of sacred wisdom illuminates your mind with 700 verses!' },
+  { level: 6, title: 'Master of Sacred Eloquence', sanskrit: 'वाग्मी', translit: 'Vāgmī', minShlokas: 1200, icon: '📿', desc: 'Mastery over the sacred sounds of Sanskrit with 1,200 verses!' },
+  { level: 7, title: 'Scholar of Sacred Texts', sanskrit: 'शास्त्रज्ञ', translit: 'Śāstrajña', minShlokas: 1800, icon: '📜', desc: 'Profound learning and sacred memory with 1,800 verses memorized!' },
+  { level: 8, title: 'Lion of Vedanta', sanskrit: 'वेदान्तकेसरी', translit: 'Vedānta Kesarī', minShlokas: 2300, icon: '🦁', desc: 'Unshakable spiritual strength and wisdom with 2,300 verses!' },
+  { level: 9, title: 'Master of Sacred Memory', sanskrit: 'कण्ठस्थ आचार्य', translit: 'Kaṇṭhastha Ācārya', minShlokas: 2744, icon: '👑', desc: 'Magnificent achievement! Complete memorization of all 2,744 sacred verses!' }
 ];
 
 export const STREAK_MILESTONES = [
@@ -34,19 +34,27 @@ export const SCRIPTURE_MICRO_BADGES = {
     { shlokas: 160, title: 'अक्षरब्रह्म', translit: 'Akṣara Brahma', icon: '🌌', desc: 'The Imperishable Omnipresence (Ch 8)' },
     { shlokas: 180, title: 'राजविद्या', translit: 'Rājavidyā', icon: '👑', desc: 'Sovereign Mystery & Royal Science (Ch 9)' },
     { shlokas: 200, title: 'दिव्यविभूति', translit: 'Divya Vibhūti', icon: '🌺', desc: 'Cosmic Divine Glories (Ch 10)' },
-    { shlokas: 220, title: 'विश्वरूप', translit: 'Viśvarūpa', icon: '👁️', desc: 'The Cosmic Omniform Vision (Ch 11)' },
-    { shlokas: 240, title: 'भक्तियोगी', translit: 'Bhaktiyogī', icon: '🪷', desc: 'Pure Heart of Absolute Devotion (Ch 12)' },
-    { shlokas: 260, title: 'क्षेत्रक्षेत्रज्ञ', translit: 'Kṣetrajña', icon: '🌾', desc: 'Knower of the Sacred Field (Ch 13)' },
-    { shlokas: 280, title: 'गुणातीत', translit: 'Guṇātīta', icon: '🕊️', desc: 'Transcending the Three Gunas (Ch 14)' },
-    { shlokas: 300, title: 'पुरुषोत्तम', translit: 'Puruṣottama', icon: '🌲', desc: 'The Eternal Tree of Being (Ch 15)' },
-    { shlokas: 350, title: 'दैवी सम्पद्', translit: 'Daivī Sampad', icon: '🛡️', desc: 'Divine Virtues & Fearlessness (Ch 16)' },
-    { shlokas: 400, title: 'श्रद्धावान्', translit: 'Śraddhāvān', icon: '🕯️', desc: 'Threefold Pure Faith (Ch 17)' },
-    { shlokas: 450, title: 'त्यागमूर्ति', translit: 'Tyāgamūrti', icon: '🌊', desc: 'The Glory of Renunciation' },
+    { shlokas: 250, title: 'विश्वरूप', translit: 'Viśvarūpa', icon: '👁️', desc: 'The Cosmic Omniform Vision (Ch 11)' },
+    { shlokas: 300, title: 'भक्तियोगी', translit: 'Bhaktiyogī', icon: '🪷', desc: 'Pure Heart of Absolute Devotion (Ch 12)' },
+    { shlokas: 400, title: 'क्षेत्रक्षेत्रज्ञ', translit: 'Kṣetrajña', icon: '🌾', desc: 'Knower of the Sacred Field' },
     { shlokas: 500, title: 'पञ्चशत गीता', translit: 'Pañcaśata Gita', icon: '💎', desc: '500 Verses of the Lord Chanted' },
-    { shlokas: 550, title: 'ब्रह्मनिर्वाण', translit: 'Brahmanirvāṇa', icon: '✨', desc: 'Supreme Peace of the Absolute' },
     { shlokas: 600, title: 'शरणम्', translit: 'Śaraṇam', icon: '🚩', desc: 'Total Surrender to the Divine' },
-    { shlokas: 650, title: 'धनुर्धर', translit: 'Dhanurdhara', icon: '🏹', desc: 'Victory where Krishna and Arjuna Unite' },
     { shlokas: 700, title: 'मोक्षसन्न्यास', translit: 'Mokṣa Sannyāsa', icon: '🏆', desc: 'Complete Master of Bhagavad Gita (700 Verses)!' }
+  ],
+  narayaneeyam: [
+    { shlokas: 20, title: 'नारायण रूप', translit: 'Nārāyaṇa Rūpa', icon: '🦚', desc: 'Divine Form of Lord Guruvayurappa' },
+    { shlokas: 50, title: 'ब्रह्मसर्ग', translit: 'Brahma Sarga', icon: '🌌', desc: 'Cosmic Manifestation & Creation (Dasakams 1-5)' },
+    { shlokas: 100, title: 'अवतार वैभव', translit: 'Avatāra Vaibhava', icon: '🌟', desc: '100 Verses of Sacred Avatara Leelas' },
+    { shlokas: 200, title: 'ध्रुव वरद', translit: 'Dhruva Varada', icon: '⭐', desc: 'Unshakable Devotion of Dhruva' },
+    { shlokas: 300, title: 'अमृतमन्थन', translit: 'Amṛtamanthana', icon: '🌊', desc: 'Churning of the Nectar Ocean' },
+    { shlokas: 400, title: 'नृसिंह विजय', translit: 'Nṛsiṁha Vijaya', icon: '🦁', desc: 'Protection of Prahlada & Cosmic Grace' },
+    { shlokas: 500, title: 'गोकुल बाललीला', translit: 'Gokula Bālalīlā', icon: '🧈', desc: '500 Verses of Sweet Krishna Childhood' },
+    { shlokas: 600, title: 'गोवर्धनधारी', translit: 'Govardhanadhārī', icon: '⛰️', desc: 'Lifting the Sacred Goverdhana Hill' },
+    { shlokas: 700, title: 'रासक्रीडा सुख', translit: 'Rāsakrīḍā Sukha', icon: '🪈', desc: 'Divine Flute & Rasa Leela Realization' },
+    { shlokas: 800, title: 'द्वारकाधीश', translit: 'Dvārakādhīśa', icon: '👑', desc: 'Sovereign Lord of Dwarka' },
+    { shlokas: 900, title: 'कुचेल प्रसादरत्न', translit: 'Kucela Prasāda', icon: '💎', desc: 'The Eternal Blessing of Kuchela Devotion' },
+    { shlokas: 1000, title: 'केशादिपाद स्तुति', translit: 'Keśādipāda Stuti', icon: '🪷', desc: 'Vision of Lord Guruvayurappa from Head to Toe' },
+    { shlokas: 1036, title: 'आयुरायोग्य सौख्यम्', translit: 'Āyur-Ārogya-Saukhyam', icon: '🏆', desc: 'Complete Master of Narayaneeyam (1,036 Verses)!' }
   ],
   soundarya_lahari: [
     { shlokas: 20, title: 'शिवशक्तियुक्ता', translit: 'Śiva-Śakti Spark', icon: '🌸', desc: 'Primordial Balance of Supreme Energy (v. 1-20)' },
