@@ -331,38 +331,6 @@
         <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
           Connect your Google Account to automatically create and sync all progress to a free Google Sheet in your Google Drive. All family devices stay up to date in real time!
         </p>
-
-        <!-- Google OAuth Sign-in -->
-        <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;">
-          <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 8px;">Method 1: Direct Google Account Sign-In (Recommended)</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
-            Configured with Google Client ID: <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;">412232690127-f121e1ujes9gs5snu93s30ulguvtk8la.apps.googleusercontent.com</code>
-          </p>
-          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <button id="btn-google-signin" class="btn-primary" style="width: auto;">
-              🔑 Sign in with Google
-            </button>
-            <button id="btn-google-signout" class="btn-edit-count" style="display: none;">
-              Sign Out
-            </button>
-            <span id="sync-status-indicator" style="font-size: 0.88rem; font-weight: 600; color: var(--text-muted);">
-              Status: Offline (Local Storage)
-            </span>
-          </div>
-        </div>
-
-        <!-- Optional Apps Script Endpoint for zero-login tablets/kids -->
-        <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;">
-          <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 8px;">Method 2: Google Apps Script Webhook (Zero Login for Kids' Tablets)</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
-            If you deploy the bundled <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">google-sheets-script.gs</code> web app, paste the URL below for instant 1-click sync without logging into Google on every child's device:
-          </p>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <input type="url" id="gas-url-input" class="form-input" placeholder="https://script.google.com/macros/s/.../exec" style="flex: 1; min-width: 250px;">
-            <button id="btn-save-gas-url" class="btn-primary" style="width: auto;">Save & Sync</button>
-          </div>
-        </div>
-
         <!-- Curriculum Start & End Dates -->
         <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px;">
           <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 12px;">Curriculum Timeline Settings</h3>
