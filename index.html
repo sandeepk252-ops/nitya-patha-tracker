@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nitya Patha - Real-Time Sanskrit Memorization Tracker</title>
+  <meta name="description" content="Track individual and family memorization of Guru Gita, Soundarya Lahari, Sivananda Lahari, Shatashloki Ramayana, Vishnu Sahasranama, Lalita Sahasranama, Kavachamanjari & Bhagavad Gita.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google Identity Services (GIS) for Google Sheets API -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- APP HEADER -->
+  <header class="app-header">
+    <div class="header-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">🪔</div>
+        <div>
+          <div class="brand-title">NITYA PATHA</div>
+          <div class="brand-subtitle">Sanskrit Memorization Sanctuary</div>
+        </div>
+      </a>
+
+      <div class="header-controls">
+        <!-- Family Member Profile Switcher -->
+        <div class="profile-pill" title="Switch active family member profile">
+          <span id="header-member-avatar">🪔</span>
+          <select id="member-select" class="profile-select">
+            <!-- Dynamic member list -->
+          </select>
+        </div>
+
+        <!-- Duolingo-style Streak Counter -->
+        <div id="header-streak-badge" class="streak-counter" title="Current Daily Sadhana Streak">
+          🔥 0 Days
+        </div>
+
+        <!-- Sacred Temple Bell Chime -->
+        <button id="bell-btn" class="btn-bell" title="Chime Sacred Temple Bell">
+          🔔 Chime
+        </button>
+
+        <!-- Sound toggle -->
+        <button id="sound-toggle-btn" class="btn-bell" title="Toggle Chanting Sound">
+          🔊
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="app-nav">
+    <div class="nav-container">
+      <button class="nav-tab active" data-tab="dashboard">
+        📊 My Dashboard
+      </button>
+      <button class="nav-tab" data-tab="scriptures">
+        📜 The 8 Scriptures
+      </button>
+      <button class="nav-tab" data-tab="calendar">
+        📅 Calendar & Date Jumper
+      </button>
+      <button class="nav-tab" data-tab="catchup">
+        ⚡ Catch-Up & Effort Estimator
+      </button>
+      <button class="nav-tab" data-tab="badges">
+        🏆 Sacred Badges & Levels
+      </button>
+      <button class="nav-tab" data-tab="family">
+        🌸 Family Circle
+      </button>
+      <button class="nav-tab" data-tab="settings">
+        ⚙️ Google Sheets Sync
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="app-content">
+
+    <!-- TAB 1: MY DASHBOARD -->
+    <section id="tab-dashboard" class="tab-panel active">
+      <!-- Kid-Friendly Time-Aware Auspicious Banner -->
+      <div id="nudge-banner" class="hero-nudge-card">
+        <div class="nudge-left">
+          <div id="nudge-icon" class="nudge-icon">🌅</div>
+          <div>
+            <span id="nudge-window-tag" class="nudge-window-tag">Auspicious Sadhana Window</span>
+            <div id="nudge-msg" class="nudge-msg">Good morning, Super Shloka Hero! 🌟</div>
+            <div id="nudge-sub" class="nudge-sub">Just 2 fun verses before school charges your Sanskrit superpower!</div>
+          </div>
+        </div>
+        <button id="nudge-action-btn" class="btn-primary" style="width: auto; padding: 10px 20px;">
+          ▶️ Start Today's Recitation
+        </button>
+      </div>
+
+      <!-- Member Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef3c7; color: #d97706;">📜</div>
+          <div>
+            <div id="stat-total-shlokas" class="stat-val">0 / 1,708</div>
+            <div class="stat-lbl">Shlokas Memorized</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef2f2; color: #ef4444;">🔥</div>
+          <div>
+            <div id="stat-current-streak" class="stat-val">0 Days</div>
+            <div class="stat-lbl">Active Streak (Max: <span id="stat-longest-streak">0</span>)</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #eff6ff; color: #2563eb;">👑</div>
+          <div>
+            <div id="stat-sacred-level" class="stat-val" style="font-size: 1.25rem;">जिज्ञासु</div>
+            <div id="stat-sacred-desc" class="stat-lbl">Level 1 · Seeker of Wisdom</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #ecfdf5; color: #059669;">🛡️</div>
+          <div>
+            <div id="stat-shields-count" class="stat-val">1 Shield</div>
+            <div class="stat-lbl">Streak Protection Active</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Dynamic Catch-Up Status Banner -->
+      <div id="quick-catchup-summary" class="catchup-card">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Current Member's Scripture Progress Overview -->
+      <div class="section-title">
+        <span>📖 Memorization Progress (All 8 Scriptures)</span>
+        <button id="btn-jump-to-scriptures" class="btn-edit-count">View All Chapters</button>
+      </div>
+      <div id="dashboard-scriptures-grid" class="scriptures-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+
+    <!-- TAB 2: THE 8 SCRIPTURES & SHLOKAS -->
+    <section id="tab-scriptures" class="tab-panel">
+      <div class="section-title">
+        <span>📜 All 8 Canonical Sanskrit Texts (1,708 Shlokas)</span>
+        <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">Click "Memorized +1" or update exact shloka count</span>
+      </div>
+      <div id="full-scriptures-grid" class="scriptures-grid">
+        <!-- Full interactive scripture cards rendered dynamically -->
+      </div>
+    </section>
+
+
+    <!-- TAB 3: CALENDAR & DATE JUMPER -->
+    <section id="tab-calendar" class="tab-panel">
+      <div class="date-jumper-card">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 12px;">📅 Skip to Any Date (Past, Present or Future)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 0.92rem;">
+          Jump to any date in the 10-month curriculum to inspect the expected daily chapter/dasakam and shloka numbers, compare against what you actually memorized, and mark progress.
+        </p>
+
+        <div class="jumper-controls">
+          <label class="form-label" style="margin-bottom: 0;">Select Date:</label>
+          <input type="date" id="calendar-date-picker" class="date-input">
+          <button id="btn-jump-today" class="btn-jump-today">📍 Jump to Today</button>
+          <button id="btn-prev-day" class="btn-jump-today">◀ Previous Day</button>
+          <button id="btn-next-day" class="btn-jump-today">Next Day ▶</button>
+        </div>
+
+        <!-- Date Status Header -->
+        <div id="date-inspector-header" style="margin-bottom: 20px;">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Syllabus Breakdown for Selected Date -->
+        <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 12px;">Daily Allocation of Chapters & Shlokas for this Date:</h3>
+        <div id="date-syllabus-list" class="date-syllabus-breakdown">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TAB 4: DYNAMIC CATCH-UP & EFFORT ESTIMATOR -->
+    <section id="tab-catchup" class="tab-panel">
+      <div class="catchup-card">
+        <div class="catchup-header">
+          <div class="catchup-title">
+            <span>⚡ Personal Dynamic Catch-Up Rate & Realistic Effort Estimator</span>
+          </div>
+          <div id="catchup-status-badge" class="status-badge badge-ontrack">ON TRACK</div>
+        </div>
+
+        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+          If you fall behind your 10-month goal, this engine recalculates your required daily shlokas and estimates your daily minutes needed so you can plan realistically without stress.
+        </p>
+
+        <div class="catchup-metrics-grid">
+          <div class="metric-box">
+            <div id="metric-remaining-days" class="metric-box-val">0</div>
+            <div class="metric-box-lbl">Days Remaining</div>
+          </div>
+          <div class="metric-box">
+            <div id="metric-remaining-shlokas" class="metric-box-val">0</div>
+            <div class="metric-box-lbl">Shlokas Left to Memorize</div>
+          </div>
+          <div class="metric-box">
+            <div id="metric-required-pace" class="metric-box-val" style="color: #ef4444;">0</div>
+            <div class="metric-box-lbl">Required Shlokas / Day</div>
+          </div>
+          <div class="metric-box">
+            <div id="metric-estimated-mins" class="metric-box-val" style="color: #7c3aed;">0m</div>
+            <div class="metric-box-lbl">Daily Chanting Effort Needed</div>
+          </div>
+        </div>
+
+        <!-- Health Gauge Banner -->
+        <div id="health-gauge-box" class="health-gauge-banner gauge-gentle">
+          <div>
+            <div style="font-weight: 800; font-size: 1rem;" id="health-gauge-title">🟢 Comfortable & Harmonious</div>
+            <div style="font-size: 0.85rem;" id="health-gauge-desc">Steady and peaceful memorization pace.</div>
+          </div>
+          <button id="btn-rebaseline-open" class="btn-rebaseline" style="display: none;">
+            ⚙️ 1-Click Re-baseline Date
+          </button>
+        </div>
+
+        <!-- Granular Breakdown per Scripture -->
+        <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 24px 0 12px 0;">Required Daily Pace per Scripture to Meet Deadline:</h3>
+        <div id="catchup-scriptures-breakdown" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TAB 5: SACRED BADGES & LEVELS -->
+    <section id="tab-badges" class="tab-panel">
+      <!-- Sacred Level Banner -->
+      <div class="hero-nudge-card" style="background: linear-gradient(135deg, #ede9fe 0%, #fef3c7 100%);">
+        <div class="nudge-left">
+          <div id="badges-level-icon" class="nudge-icon">👑</div>
+          <div>
+            <div id="badges-level-sanskrit" class="brand-title" style="color: #4c1d95; font-size: 1.4rem;">जिज्ञासु</div>
+            <div id="badges-level-title" style="font-weight: 700; color: #1e1b18;">Level 1 · The Seeker of Wisdom</div>
+            <div id="badges-level-progress" style="font-size: 0.82rem; color: #6b7280;">0 of 25 shlokas for next level</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 20-Shloka Micro Badges Grid -->
+      <div class="section-title">
+        <span>🏆 20-Shloka Micro-Badges for Each Scripture</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Unlocked automatically as you memorize</span>
+      </div>
+      <div id="micro-badges-grid" class="badges-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+
+    <!-- TAB 6: SEPARATE FAMILY CIRCLE TAB (NO DEMOTIVATING COMPETITION) -->
+    <section id="tab-family" class="tab-panel">
+      <div class="family-hero">
+        <h2>🌸 Family Sadhana Sanctuary</h2>
+        <p>A sacred, peaceful space celebrating our family's collective recitation journey without ranking or pressure.</p>
+      </div>
+
+      <!-- Household Milestones -->
+      <div class="stats-grid" style="margin-bottom: 30px;">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef3c7; color: #d97706;">🏠</div>
+          <div>
+            <div id="family-total-shlokas" class="stat-val">0</div>
+            <div class="stat-lbl">Family Shlokas Memorized Together</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #eff6ff; color: #2563eb;">⏱️</div>
+          <div>
+            <div id="family-total-hours" class="stat-val">0h</div>
+            <div class="stat-lbl">Hours Chanted as a Household</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef2f2; color: #ef4444;">🔥</div>
+          <div>
+            <div id="family-max-streak" class="stat-val">0 Days</div>
+            <div class="stat-lbl">Family Streak Harmony</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <span>👨‍👩‍👧‍👦 Family Members</span>
+        <button id="btn-add-member-modal" class="btn-edit-count">➕ Add Family Member</button>
+      </div>
+
+      <!-- Non-judgmental Individual Member Cards -->
+      <div id="family-members-cards-container" class="family-milestones-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+
+    <!-- TAB 7: GOOGLE SHEETS CLOUD SYNC & SETTINGS -->
+    <section id="tab-settings" class="tab-panel">
+      <div class="catchup-card">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 12px;">⚙️ Real-Time Google Sheets Backend (100% Free Forever)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+          Connect your Google Account to automatically create and sync all progress to a free Google Sheet in your Google Drive. All family devices stay up to date in real time!
+        </p>
+
+        <!-- Google OAuth Sign-in -->
+        <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 8px;">Method 1: Direct Google Account Sign-In (Recommended)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
+            Configured with Google Client ID: <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;">412232690127-f121e1ujes9gs5snu93s30ulguvtk8la.apps.googleusercontent.com</code>
+          </p>
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <button id="btn-google-signin" class="btn-primary" style="width: auto;">
+              🔑 Sign in with Google
+            </button>
+            <button id="btn-google-signout" class="btn-edit-count" style="display: none;">
+              Sign Out
+            </button>
+            <span id="sync-status-indicator" style="font-size: 0.88rem; font-weight: 600; color: var(--text-muted);">
+              Status: Offline (Local Storage)
+            </span>
+          </div>
+        </div>
+
+        <!-- Optional Apps Script Endpoint for zero-login tablets/kids -->
+        <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 8px;">Method 2: Google Apps Script Webhook (Zero Login for Kids' Tablets)</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
+            If you deploy the bundled <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">google-sheets-script.gs</code> web app, paste the URL below for instant 1-click sync without logging into Google on every child's device:
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input type="url" id="gas-url-input" class="form-input" placeholder="https://script.google.com/macros/s/.../exec" style="flex: 1; min-width: 250px;">
+            <button id="btn-save-gas-url" class="btn-primary" style="width: auto;">Save & Sync</button>
+          </div>
+        </div>
+
+        <!-- Curriculum Start & End Dates -->
+        <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 12px;">Curriculum Timeline Settings</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 16px;">
+            <div>
+              <label class="form-label">Curriculum Start Date</label>
+              <input type="date" id="settings-start-date" class="form-input">
+            </div>
+            <div>
+              <label class="form-label">Target Completion Date (10 Months Default)</label>
+              <input type="date" id="settings-end-date" class="form-input">
+            </div>
+          </div>
+          <button id="btn-save-settings-dates" class="btn-primary" style="width: auto;">
+            💾 Save Timeline Settings
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- MODAL: ADVANCE / LOG SHLOKAS -->
+  <div id="modal-log-shlokas" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-scripture-name" class="modal-title">📖 Log Recitation</h3>
+        <button id="modal-close-btn" class="btn-close">&times;</button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">How many new shlokas memorized today?</label>
+        <input type="number" id="modal-delta-shlokas" class="form-input" min="1" value="2">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Chanting Duration (Minutes)</label>
+        <input type="number" id="modal-duration" class="form-input" min="1" value="15">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Notes & Reflection (Optional)</label>
+        <input type="text" id="modal-notes" class="form-input" placeholder="e.g. Recited with morning prayer, clear pronunciation">
+      </div>
+      <button id="modal-submit-advance-btn" class="btn-primary">
+        ✨ Save & Celebrate Shlokas!
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: SET EXACT PROGRESS COUNT -->
+  <div id="modal-set-exact" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-exact-title" class="modal-title">✏️ Update Exact Shlokas</h3>
+        <button id="modal-exact-close-btn" class="btn-close">&times;</button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Total Shlokas Memorized So Far:</label>
+        <input type="number" id="modal-exact-count" class="form-input" min="0">
+        <span id="modal-exact-max-hint" style="font-size: 0.8rem; color: var(--text-muted);">Max: 700</span>
+      </div>
+      <button id="modal-exact-submit-btn" class="btn-primary">
+        💾 Update Progress
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD FAMILY MEMBER -->
+  <div id="modal-add-member" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">➕ Add Family Member</h3>
+        <button id="modal-member-close-btn" class="btn-close">&times;</button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Name</label>
+        <input type="text" id="new-member-name" class="form-input" placeholder="e.g. Aarav or Priya">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Role</label>
+        <select id="new-member-role" class="form-select">
+          <option value="Child">Child (Super Shloka Hero)</option>
+          <option value="Parent">Parent</option>
+          <option value="Family Member">Family Member</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Avatar Emoji</label>
+        <select id="new-member-avatar" class="form-select">
+          <option value="🪔">🪔 Sacred Diya</option>
+          <option value="🌸">🌸 Lotus Blossom</option>
+          <option value="🏹">🏹 Mighty Arjuna</option>
+          <option value="🚩">🚩 Hanuman Flag</option>
+          <option value="🦚">🦚 Peacock Feather</option>
+          <option value="🐘">🐘 Lord Ganesha</option>
+          <option value="☀️">☀️ Surya Radiance</option>
+        </select>
+      </div>
+      <button id="btn-save-new-member" class="btn-primary">
+        🌸 Add to Family Circle
+      </button>
+    </div>
+  </div>
+
+  <!-- CELEBRATION TOAST & CONFETTI NOTIFICATION -->
+  <div id="celebration-toast" class="celebration-toast">
+    <div id="toast-icon" style="font-size: 2.2rem;">🏆</div>
+    <div>
+      <div id="toast-title" style="font-weight: 800; font-size: 1rem; color: #fde68a;">Badge Unlocked!</div>
+      <div id="toast-message" style="font-size: 0.85rem; color: #e5e7eb;">You've completed 20 shlokas!</div>
+    </div>
+  </div>
+
+  <!-- APP CONTROLLER MODULE -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
