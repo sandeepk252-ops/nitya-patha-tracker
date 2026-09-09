@@ -1,21 +1,22 @@
 # 🪔 Nitya Patha: Real-Time Sanskrit Memorization Tracker
 
-A complete, 100% free-forever, real-time collaborative web application designed to track individual and family memorization of **8 sacred Sanskrit scriptures** (1,708 shlokas total) within a customizable timeframe (default 10 months).
+A complete, 100% free-forever, real-time collaborative web application designed to track individual and family memorization of **9 sacred Sanskrit scriptures** (2,744 shlokas total) within a customizable timeframe (default 10 months).
 
 Backed permanently by **Google Sheets** and hosted on **GitHub Pages**, it requires zero paid databases, zero server costs, and zero subscription fees ($0.00 forever).
 
 ---
 
-## 📜 The 8 Canonical Sanskrit Scriptures (1,708 Shlokas Total)
+## 📜 The 9 Canonical Sanskrit Scriptures (2,744 Shlokas Total)
 
 1. **Bhagavad Gita** (श्रीमद्भगवद्गीता) — 18 Chapters · **700 Verses**
-2. **Sri Vishnu Sahasranamam** (श्रीविष्णुसहस्रनामस्तोत्रम्) — 108 Stotra Verses · **108 Shlokas**
-3. **Sri Lalita Sahasranamam** (श्रीललितासहस्रनामस्तोत्रम्) — 183 Stotra Verses · **183 Shlokas**
-4. **Guru Gita** (गुरुगीता) — 3 Adhyayas from Skanda Purana · **182 Shlokas**
-5. **Soundaryalahari** (सौन्दर्यलहरी) — Ananda Lahari + Soundarya Lahari by Sri Adi Shankaracharya · **100 Shlokas**
-6. **Sivanandalahari** (शिवानन्दलहरी) — 100 Devotional Verses to Lord Shiva by Sri Adi Shankaracharya · **100 Shlokas**
-7. **Shatashloki Ramayana** (शतश्लोकी रामायणम्) — Complete Valmiki Ramayana Summary · **100 Shlokas**
-8. **Kavachamanjari** (कवचमञ्जरी) — 7 Sacred Protective Armors (Ganesha, Shiva, Narayana, Rama Raksha, Aditya Hridaya, Durga, Skanda) · **235 Shlokas**
+2. **Narayaneeyam** (श्रीनारायणीयम्) — 100 Dasakams · **1,036 Shlokas** (Melpathur Narayana Bhattathiri)
+3. **Sri Vishnu Sahasranamam** (श्रीविष्णुसहस्रनामस्तोत्रम्) — 108 Stotra Verses · **108 Shlokas**
+4. **Sri Lalita Sahasranamam** (श्रीललितासहस्रनामस्तोत्रम्) — 183 Stotra Verses · **183 Shlokas**
+5. **Guru Gita** (गुरुगीता) — 3 Adhyayas from Skanda Purana · **182 Shlokas**
+6. **Soundaryalahari** (सौन्दर्यलहरी) — Ananda Lahari + Soundarya Lahari by Sri Adi Shankaracharya · **100 Shlokas**
+7. **Sivanandalahari** (शिवानन्दलहरी) — 100 Devotional Verses to Lord Shiva by Sri Adi Shankaracharya · **100 Shlokas**
+8. **Shatashloki Ramayana** (शतश्लोकी रामायणम्) — Complete Valmiki Ramayana Summary · **100 Shlokas**
+9. **Kavachamanjari** (कवचमञ्जरी) — 7 Sacred Protective Armors (Ganesha, Shiva, Narayana, Rama Raksha, Aditya Hridaya, Durga, Skanda) · **235 Shlokas**
 
 ---
 
