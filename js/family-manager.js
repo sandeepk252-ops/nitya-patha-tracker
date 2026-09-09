@@ -146,29 +146,36 @@ export class FamilyManager {
     const scripture = SCRIPTURES.find(s => s.id === scriptureId);
     if (!scripture) return null;
 
-    const clampedCount = Math.max(0, Math.min(scripture.totalShlokas, parseInt(newCompletedCount) || 0));
+    const parsedCount = parseInt(newCompletedCount);
+    const clampedCount = Math.max(0, Math.min(scripture.totalShlokas, isNaN(parsedCount) ? 0 : parsedCount));
     const previousCount = member.progress[scriptureId] || 0;
     const delta = clampedCount - previousCount;
+
+    // If no new shlokas were added, update value if set directly, but skip log & streak
+    if (delta <= 0) {
+      member.progress[scriptureId] = clampedCount;
+      this.saveData();
+      return null;
+    }
 
     member.progress[scriptureId] = clampedCount;
 
     // Log entry if count increased
     const todayStr = new Date().toISOString().split('T')[0];
-    if (delta > 0) {
-      member.logs.unshift({
-        id: 'log_' + Date.now(),
-        date: todayStr,
-        timestamp: new Date().toISOString(),
-        scriptureId,
-        scriptureTitle: scripture.title,
-        deltaShlokas: delta,
-        totalNow: clampedCount,
-        durationMins: Math.max(1, parseInt(durationMins) || 15),
-        notes: notes || 'Dedicated recitation'
-      });
-      // Update streak
-      this.updateMemberStreak(member, todayStr);
-    }
+    member.logs.unshift({
+      id: 'log_' + Date.now(),
+      date: todayStr,
+      timestamp: new Date().toISOString(),
+      scriptureId,
+      scriptureTitle: scripture.title,
+      deltaShlokas: delta,
+      totalNow: clampedCount,
+      durationMins: Math.max(0, isNaN(parseInt(durationMins)) ? 0 : parseInt(durationMins)),
+      notes: notes || 'Dedicated recitation'
+    });
+
+    // Update streak only when new shlokas are memorized
+    this.updateMemberStreak(member, todayStr);
 
     this.saveData();
     return {

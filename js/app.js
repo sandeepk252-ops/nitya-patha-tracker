@@ -170,17 +170,28 @@ class AppController {
     if (submitAdvanceBtn) {
       submitAdvanceBtn.addEventListener('click', () => {
         if (!this.activeModalScriptureId) return;
-        const delta = parseInt(document.getElementById('modal-delta-shlokas').value) || 1;
-        const duration = parseInt(document.getElementById('modal-duration').value) || 15;
+        const deltaRaw = document.getElementById('modal-delta-shlokas').value.trim();
+        const durationRaw = document.getElementById('modal-duration').value.trim();
+
+        const delta = isNaN(parseInt(deltaRaw)) ? 0 : parseInt(deltaRaw);
+        const duration = isNaN(parseInt(durationRaw)) ? 0 : parseInt(durationRaw);
         const notes = document.getElementById('modal-notes').value || '';
+
+        if (delta <= 0) {
+          this.showToast('⚠️ No Progress Added', 'Please enter at least 1 new shloka memorized.');
+          advanceModal.classList.remove('active');
+          return;
+        }
 
         const activeMember = this.familyManager.getActiveMember();
         const current = activeMember.progress[this.activeModalScriptureId] || 0;
         const res = this.familyManager.updateShlokaProgress(this.activeModalScriptureId, current + delta, duration, notes);
 
         advanceModal.classList.remove('active');
-        sacredAudio.playCelebration();
-        this.checkMilestoneUnlocks(this.activeModalScriptureId, current + delta);
+        if (res) {
+          sacredAudio.playCelebration();
+          this.checkMilestoneUnlocks(this.activeModalScriptureId, current + delta);
+        }
         this.render();
       });
     }
