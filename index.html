@@ -1,172 +1,449 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Description" content="Track individual and family memorization of Bhagavad Gita, Narayaneeyam, Vishnu Sahasranama, Lalita Sahasranama, Guru Gita, Soundarya Lahari, Sivananda Lahari, Shatashloki Ramayana &amp; Kavachamanjari.">
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Apple Color Emoji'; color: #0000e9; -webkit-text-stroke: #0000e9}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #0000e9; -webkit-text-stroke: #0000e9}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Apple Color Emoji'; -webkit-text-stroke: #000000}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85); background-color: #ffffff; min-height: 13.0px}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85); min-height: 13.0px}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Apple Color Emoji'; color: #ce630b; -webkit-text-stroke: #ce630b; background-color: #fdf1bb}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Apple Color Emoji'; color: #e82c35; -webkit-text-stroke: #e82c35; background-color: #fdeeef}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Apple Color Emoji'; color: #1d48e6; -webkit-text-stroke: #1d48e6; background-color: #ebf3ff}
-    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px 'ITF Devanagari'; -webkit-text-stroke: #000000}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Apple Color Emoji'; color: #138756; -webkit-text-stroke: #138756; background-color: #e8fdf2}
-    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px Times; -webkit-text-stroke: #000000}
-    p.p16 {margin: 0.0px 0.0px 16.0px 0.0px; font: 11.0px Times; -webkit-text-stroke: #000000}
-    p.p18 {margin: 0.0px 0.0px 20.0px 0.0px; font: 11.4px Times; -webkit-text-stroke: #000000}
-    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #e82c35; -webkit-text-stroke: #e82c35}
-    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #6715e8; -webkit-text-stroke: #6715e8}
-    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.2px Times; -webkit-text-stroke: #000000}
-    p.p23 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.8px 'ITF Devanagari'; color: #3a0583; -webkit-text-stroke: #3a0583}
-    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #171513; -webkit-text-stroke: #171513}
-    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px Times; color: #585e6d; -webkit-text-stroke: #585e6d}
-    p.p27 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p28 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
-    p.p29 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85); background-color: #b3b3b3}
-    p.p31 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Times; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85); background-color: #ffffff}
-    p.p32 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85); background-color: #ffffff}
-    p.p33 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.4px 'Apple Color Emoji'; -webkit-text-stroke: #000000}
-    p.p34 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #fce278; -webkit-text-stroke: #fce278}
-    p.p35 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.2px Times; color: #dfe1e6; -webkit-text-stroke: #dfe1e6}
-    span.s1 {text-decoration: underline ; font-kerning: none}
-    span.s2 {font-kerning: none}
-    span.s3 {font-kerning: none; background-color: #ffffff}
-    span.s4 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s5 {font: 11.0px '.Apple Color Emoji UI'; font-kerning: none; background-color: #b3b3b3}
-    span.s6 {font-kerning: none; background-color: #b3b3b3}
-    span.s7 {font: 11.0px 'Helvetica Neue'; font-kerning: none; color: rgba(0, 0, 0, 0.85); background-color: #b3b3b3; -webkit-text-stroke: 0px rgba(0, 0, 0, 0.85)}
-    span.s8 {font: 12.0px Times; font-kerning: none}
-    span.s9 {font: 18.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s10 {font: 12.0px Times; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s11 {font: 10.2px Times; font-kerning: none}
-    span.s12 {font: 11.0px '.Apple Color Emoji UI'; font-kerning: none; color: rgba(0, 0, 0, 0.85); background-color: #b3b3b3; -webkit-text-stroke: 0px rgba(0, 0, 0, 0.85)}
-    span.s13 {font-kerning: none; color: rgba(0, 0, 0, 0.85); background-color: #b3b3b3; -webkit-text-stroke: 0px rgba(0, 0, 0, 0.85)}
-    span.s14 {font-kerning: none; background-color: #f6f9fb}
-    span.s15 {font: 11.0px '.Apple Color Emoji UI'; font-kerning: none}
-    span.s16 {font: 14.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s17 {font: 9.6px Times; font-kerning: none}
-    span.s18 {font: 11.0px 'Helvetica Neue'; font-kerning: none}
-    span.s19 {font: 11.0px Times; font-kerning: none}
-    span.s20 {font: 11.0px 'Apple Color Emoji'; font-kerning: none}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nitya Patha - Real-Time Sanskrit Memorization Tracker</title>
+  <meta name="description" content="Track individual and family memorization of Bhagavad Gita, Narayaneeyam, Vishnu Sahasranama, Lalita Sahasranama, Guru Gita, Soundarya Lahari, Sivananda Lahari, Shatashloki Ramayana & Kavachamanjari.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google Identity Services (GIS) for Google Sheets API -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<p class="p1"><span class="s1">🪔</span></p>
-<p class="p2"><span class="s1">NITYA PATHA</span></p>
-<p class="p2"><span class="s1">Sanskrit Memorization Sanctuary</span></p>
-<p class="p3"><span class="s2">🪔</span></p>
-<p class="p4"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
-<p class="p5"><span class="s3"><span class="Apple-converted-space">          </span></span></p>
-<p class="p6"><span class="s4">🔥</span><span class="s2"> 0 Days</span></p>
-<p class="p7"><span class="s5">🔔</span><span class="s6"> Chime </span><span class="s5">🔊</span></p>
-<p class="p7"><span class="s5">📊</span><span class="s6"> My Dashboard </span><span class="s5">📜</span><span class="s6"> The 9 Scriptures </span><span class="s5">📅</span><span class="s6"> Calendar &amp; Date Jumper </span><span class="s5">⚡</span><span class="s6"> Catch-Up &amp; Effort Estimator </span><span class="s5">🏆</span><span class="s6"> Sacred Badges &amp; Levels </span><span class="s5">🌸</span><span class="s6"> Family Circle </span><span class="s5">⚙️</span><span class="s6"> Google Sheets Sync</span></p>
-<p class="p3"><span class="s2">🌅</span></p>
-<p class="p6"><span class="s2">Auspicious Sadhana Window</span></p>
-<p class="p6"><span class="s2">Good morning, Super Shloka Hero! </span><span class="s4">🌟</span></p>
-<p class="p6"><span class="s2">Just 2 fun verses before school charges your Sanskrit superpower!</span></p>
-<p class="p7"><span class="s5">▶️</span><span class="s6"> Start Today's Recitation</span></p>
-<p class="p8"><span class="s2">📜</span></p>
-<p class="p6"><span class="s2">0 / 2,744</span></p>
-<p class="p6"><span class="s2">Shlokas Memorized</span></p>
-<p class="p9"><span class="s2">🔥</span></p>
-<p class="p6"><span class="s2">0 Days</span></p>
-<p class="p6"><span class="s2">Active Streak (Max: 0)</span></p>
-<p class="p10"><span class="s2">👑</span></p>
-<p class="p11"><span class="s2">जिज्ञासु</span></p>
-<p class="p6"><span class="s2">Level 1 · Seeker of Wisdom</span></p>
-<p class="p12"><span class="s2">🛡️</span></p>
-<p class="p6"><span class="s2">1 Shield</span></p>
-<p class="p6"><span class="s2">Streak Protection Active</span></p>
-<p class="p13"><span class="s2"></span><br></p>
-<p class="p6"><span class="s4">📖</span><span class="s2"> Memorization Progress (All 9 Scriptures) </span><span class="s7">View All Chapters</span></p>
-<p class="p13"><span class="s2"></span><br></p>
-<p class="p14"><span class="s4">📜</span><span class="s8"> All 9 Canonical Sanskrit Texts (2,744 Shlokas) </span><span class="s2">Click "Memorized +1" or update exact shloka count</span></p>
-<p class="p13"><span class="s2"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s9">📅</span><span class="s2"><b> Skip to Any Date (Past, Present or Future)</b></span></h2>
-<p class="p16"><span class="s2">Jump to any date in the 10-month curriculum to inspect the expected daily chapter/dasakam and shloka numbers, compare against what you actually memorized, and mark progress.</span></p>
-<p class="p7"><span class="s10">Select Date: </span><span class="s5">📍</span><span class="s6"> Jump to Today</span><span class="s10"> </span><span class="s6">◀ Previous Day</span><span class="s10"> </span><span class="s6">Next Day ▶</span></p>
-<p class="p13"><span class="s2"></span><br></p>
-<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 13.2px Times; -webkit-text-stroke: #000000"><span class="s2"><b>Daily Allocation of Chapters &amp; Shlokas for this Date:</b></span></h3>
-<p class="p13"><span class="s2"></span><br></p>
-<p class="p6"><span class="s4">⚡</span><span class="s2"> Personal Dynamic Catch-Up Rate &amp; Realistic Effort Estimator</span></p>
-<p class="p6"><span class="s2">ON TRACK</span></p>
-<p class="p18"><span class="s2">If you fall behind your 10-month goal, this engine recalculates your required daily shlokas and estimates your daily minutes needed so you can plan realistically without stress.</span></p>
-<p class="p6"><span class="s2">0</span></p>
-<p class="p6"><span class="s2">Days Remaining</span></p>
-<p class="p6"><span class="s2">0</span></p>
-<p class="p6"><span class="s2">Shlokas Left to Memorize</span></p>
-<p class="p19"><span class="s2">0</span></p>
-<p class="p6"><span class="s2">Required Shlokas / Day</span></p>
-<p class="p20"><span class="s2">0m</span></p>
-<p class="p6"><span class="s2">Daily Chanting Effort Needed</span></p>
-<p class="p6"><span class="s4">🟢</span><span class="s2"><b> Comfortable &amp; Harmonious</b></span></p>
-<p class="p21"><span class="s2">Steady and peaceful memorization pace.</span></p>
-<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 13.8px Times; -webkit-text-stroke: #000000"><span class="s2"><b>Required Daily Pace per Scripture to Meet Deadline:</b></span></h3>
-<p class="p3"><span class="s2">👑</span></p>
-<p class="p23"><span class="s2">जिज्ञासु</span></p>
-<p class="p24"><span class="s2"><b>Level 1 · The Seeker of Wisdom</b></span></p>
-<p class="p25"><span class="s2">0 of 25 shlokas for next level</span></p>
-<p class="p6"><span class="s4">🏆</span><span class="s2"> 20-Shloka Micro-Badges for Each Scripture </span><span class="s11">Unlocked automatically as you memorize</span></p>
-<p class="p13"><span class="s2"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s9">🌸</span><span class="s2"><b> Family Sadhana Sanctuary</b></span></h2>
-<p class="p27"><span class="s2">A sacred, peaceful space celebrating our family's collective recitation journey without ranking or pressure.</span></p>
-<p class="p8"><span class="s2">🏠</span></p>
-<p class="p6"><span class="s2">0</span></p>
-<p class="p6"><span class="s2">Family Shlokas Memorized Together</span></p>
-<p class="p10"><span class="s2">⏱️</span></p>
-<p class="p6"><span class="s2">0h</span></p>
-<p class="p6"><span class="s2">Hours Chanted as a Household</span></p>
-<p class="p9"><span class="s2">🔥</span></p>
-<p class="p6"><span class="s2">0 Days</span></p>
-<p class="p6"><span class="s2">Family Streak Harmony</span></p>
-<p class="p28"><span class="s4">👨‍👩‍👧‍👦</span><span class="s8"> Family Members </span><span class="s12">➕</span><span class="s13"> Add Family Member</span></p>
-<p class="p13"><span class="s2"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s9">⚙️</span><span class="s2"><b> Real-Time Google Sheets Backend (100% Free Forever)</b></span></h2>
-<p class="p18"><span class="s2">Connect your Google Account to automatically create and sync all progress to a free Google Sheet in your Google Drive. All family devices stay up to date in real time!</span></p>
-<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 13.2px Times; -webkit-text-stroke: #000000"><span class="s14"><b>Curriculum Timeline Settings</b><b></b></span></h3>
-<p class="p6"><span class="s14">Curriculum Start Date</span></p>
-<p class="p6"><span class="s14">Target Completion Date (10 Months Default)</span></p>
-<p class="p29"><span class="s15">💾</span><span class="s2"> Save Timeline Settings</span></p>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s16">📖</span><span class="s2"><b> Log Recitation</b></span></h3>
-<p class="p7"><span class="s6">×</span></p>
-<p class="p6"><span class="s2">How many new shlokas memorized today?</span></p>
-<p class="p6"><span class="s2">Chanting Duration (Minutes)</span></p>
-<p class="p6"><span class="s2">Notes &amp; Reflection (Optional)</span></p>
-<p class="p7"><span class="s5">✨</span><span class="s6"> Save &amp; Celebrate Shlokas!</span></p>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s16">✏️</span><span class="s2"><b> Update Exact Shlokas</b></span></h3>
-<p class="p7"><span class="s6">×</span></p>
-<p class="p6"><span class="s2">Total Shlokas Memorized So Far: </span><span class="s17">Max: 700</span></p>
-<p class="p7"><span class="s5">💾</span><span class="s6"> Update Progress</span></p>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Times; -webkit-text-stroke: #000000"><span class="s16">➕</span><span class="s2"><b> Add Family Member</b></span></h3>
-<p class="p7"><span class="s6">×</span></p>
-<p class="p6"><span class="s2">Name</span></p>
-<p class="p6"><span class="s2">Role</span></p>
-<p class="p31"><span class="s18"><span class="Apple-converted-space">          </span></span><span class="s2">Child (Super Shloka Hero)</span></p>
-<p class="p32"><span class="s2"><span class="Apple-converted-space">          </span></span><span class="s19">Parent</span></p>
-<p class="p31"><span class="s18"><span class="Apple-converted-space">          </span></span><span class="s2">Family Member</span></p>
-<p class="p5"><span class="s3"><span class="Apple-converted-space">        </span></span></p>
-<p class="p6"><span class="s2">Avatar Emoji</span></p>
-<p class="p31"><span class="s18"><span class="Apple-converted-space">          </span></span><span class="s20">🪔</span><span class="s2"> Sacred Diya</span></p>
-<p class="p31"><span class="s18"><span class="Apple-converted-space">          </span></span><span class="s20">🌸</span><span class="s2"> Lotus Blossom</span></p>
-<p class="p31"><span class="s18"><span class="Apple-converted-space">          </span></span><span class="s20">🏹</span><span class="s2"> Mighty Arjuna</span></p>
-<p class="p31"><span class="s18"><span class="Apple-converted-space">          </span></span><span class="s20">🚩</span><span class="s2"> Hanuman Flag</span></p>
-<p class="p31"><span class="s18"><span class="Apple-converted-space">          </span></span><span class="s20">🦚</span><span class="s2"> Peacock Feather</span></p>
-<p class="p31"><span class="s18"><span class="Apple-converted-space">          </span></span><span class="s20">🐘</span><span class="s2"> Lord Ganesha</span></p>
-<p class="p31"><span class="s18"><span class="Apple-converted-space">          </span></span><span class="s20">☀️</span><span class="s2"> Surya Radiance</span></p>
-<p class="p5"><span class="s3"><span class="Apple-converted-space">        </span></span></p>
-<p class="p7"><span class="s5">🌸</span><span class="s6"> Add to Family Circle</span></p>
-<p class="p33"><span class="s2">🏆</span></p>
-<p class="p34"><span class="s2"><b>Badge Unlocked!</b></span></p>
-<p class="p35"><span class="s2">You've completed 20 shlokas!</span></p>
+
+  <!-- APP HEADER -->
+  <header class="app-header">
+    <div class="header-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">🪔</div>
+        <div>
+          <div class="brand-title">NITYA PATHA</div>
+          <div class="brand-subtitle">Sanskrit Memorization Sanctuary</div>
+        </div>
+      </a>
+
+      <div class="header-controls">
+        <!-- Family Member Profile Switcher -->
+        <div class="profile-pill" title="Switch active family member profile">
+          <span id="header-member-avatar">🪔</span>
+          <select id="member-select" class="profile-select">
+            <!-- Dynamic member list -->
+          </select>
+        </div>
+
+        <!-- Duolingo-style Streak Counter -->
+        <div id="header-streak-badge" class="streak-counter" title="Current Daily Sadhana Streak">
+          🔥 0 Days
+        </div>
+
+        <!-- Sacred Temple Bell Chime -->
+        <button id="bell-btn" class="btn-bell" title="Chime Sacred Temple Bell">
+          🔔 Chime
+        </button>
+
+        <!-- Sound toggle -->
+        <button id="sound-toggle-btn" class="btn-bell" title="Toggle Chanting Sound">
+          🔊
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="app-nav">
+    <div class="nav-container">
+      <button class="nav-tab active" data-tab="dashboard">
+        📊 My Dashboard
+      </button>
+      <button class="nav-tab" data-tab="scriptures">
+        📜 The 9 Scriptures
+      </button>
+      <button class="nav-tab" data-tab="calendar">
+        📅 Calendar & Date Jumper
+      </button>
+      <button class="nav-tab" data-tab="catchup">
+        ⚡ Catch-Up & Effort Estimator
+      </button>
+      <button class="nav-tab" data-tab="badges">
+        🏆 Sacred Badges & Levels
+      </button>
+      <button class="nav-tab" data-tab="family">
+        🌸 Family Circle
+      </button>
+      <button class="nav-tab" data-tab="settings">
+        ⚙️ Google Sheets Sync
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="app-content">
+
+    <!-- TAB 1: MY DASHBOARD -->
+    <section id="tab-dashboard" class="tab-panel active">
+      <!-- Kid-Friendly Time-Aware Auspicious Banner -->
+      <div id="nudge-banner" class="hero-nudge-card">
+        <div class="nudge-left">
+          <div id="nudge-icon" class="nudge-icon">🌅</div>
+          <div>
+            <span id="nudge-window-tag" class="nudge-window-tag">Auspicious Sadhana Window</span>
+            <div id="nudge-msg" class="nudge-msg">Good morning, Super Shloka Hero! 🌟</div>
+            <div id="nudge-sub" class="nudge-sub">Just 2 fun verses before school charges your Sanskrit superpower!</div>
+          </div>
+        </div>
+        <button id="nudge-action-btn" class="btn-primary" style="width: auto; padding: 10px 20px;">
+          ▶️ Start Today's Recitation
+        </button>
+      </div>
+
+      <!-- Member Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef3c7; color: #d97706;">📜</div>
+          <div>
+            <div id="stat-total-shlokas" class="stat-val">0 / 2,744</div>
+            <div class="stat-lbl">Shlokas Memorized</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef2f2; color: #ef4444;">🔥</div>
+          <div>
+            <div id="stat-current-streak" class="stat-val">0 Days</div>
+            <div class="stat-lbl">Active Streak (Max: <span id="stat-longest-streak">0</span>)</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #eff6ff; color: #2563eb;">👑</div>
+          <div>
+            <div id="stat-sacred-level" class="stat-val" style="font-size: 1.25rem;">जिज्ञासु</div>
+            <div id="stat-sacred-desc" class="stat-lbl">Level 1 · Seeker of Wisdom</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #ecfdf5; color: #059669;">🛡️</div>
+          <div>
+            <div id="stat-shields-count" class="stat-val">1 Shield</div>
+            <div class="stat-lbl">Streak Protection Active</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Dynamic Catch-Up Status Banner -->
+      <div id="quick-catchup-summary" class="catchup-card">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Current Member's Scripture Progress Overview -->
+      <div class="section-title">
+        <span>📖 Memorization Progress (All 9 Scriptures)</span>
+        <button id="btn-jump-to-scriptures" class="btn-edit-count">View All Chapters</button>
+      </div>
+      <div id="dashboard-scriptures-grid" class="scriptures-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+
+    <!-- TAB 2: THE 9 SCRIPTURES & SHLOKAS -->
+    <section id="tab-scriptures" class="tab-panel">
+      <div class="section-title">
+        <span>📜 All 9 Canonical Sanskrit Texts (2,744 Shlokas)</span>
+        <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">Click "Memorized +1" or update exact shloka count</span>
+      </div>
+      <div id="full-scriptures-grid" class="scriptures-grid">
+        <!-- Full interactive scripture cards rendered dynamically -->
+      </div>
+    </section>
+
+
+    <!-- TAB 3: CALENDAR & DATE JUMPER -->
+    <section id="tab-calendar" class="tab-panel">
+      <div class="date-jumper-card">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 12px;">📅 Skip to Any Date (Past, Present or Future)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 0.92rem;">
+          Jump to any date in the 10-month curriculum to inspect the expected daily chapter/dasakam and shloka numbers, compare against what you actually memorized, and mark progress.
+        </p>
+
+        <div class="jumper-controls">
+          <label class="form-label" style="margin-bottom: 0;">Select Date:</label>
+          <input type="date" id="calendar-date-picker" class="date-input">
+          <button id="btn-jump-today" class="btn-jump-today">📍 Jump to Today</button>
+          <button id="btn-prev-day" class="btn-jump-today">◀ Previous Day</button>
+          <button id="btn-next-day" class="btn-jump-today">Next Day ▶</button>
+        </div>
+
+        <!-- Date Status Header -->
+        <div id="date-inspector-header" style="margin-bottom: 20px;">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Syllabus Breakdown for Selected Date -->
+        <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 12px;">Daily Allocation of Chapters & Shlokas for this Date:</h3>
+        <div id="date-syllabus-list" class="date-syllabus-breakdown">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TAB 4: DYNAMIC CATCH-UP & EFFORT ESTIMATOR -->
+    <section id="tab-catchup" class="tab-panel">
+      <div class="catchup-card">
+        <div class="catchup-header">
+          <div class="catchup-title">
+            <span>⚡ Personal Dynamic Catch-Up Rate & Realistic Effort Estimator</span>
+          </div>
+          <div id="catchup-status-badge" class="status-badge badge-ontrack">ON TRACK</div>
+        </div>
+
+        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+          If you fall behind your 10-month goal, this engine recalculates your required daily shlokas and estimates your daily minutes needed so you can plan realistically without stress.
+        </p>
+
+        <div class="catchup-metrics-grid">
+          <div class="metric-box">
+            <div id="metric-remaining-days" class="metric-box-val">0</div>
+            <div class="metric-box-lbl">Days Remaining</div>
+          </div>
+          <div class="metric-box">
+            <div id="metric-remaining-shlokas" class="metric-box-val">0</div>
+            <div class="metric-box-lbl">Shlokas Left to Memorize</div>
+          </div>
+          <div class="metric-box">
+            <div id="metric-required-pace" class="metric-box-val" style="color: #ef4444;">0</div>
+            <div class="metric-box-lbl">Required Shlokas / Day</div>
+          </div>
+          <div class="metric-box">
+            <div id="metric-estimated-mins" class="metric-box-val" style="color: #7c3aed;">0m</div>
+            <div class="metric-box-lbl">Daily Chanting Effort Needed</div>
+          </div>
+        </div>
+
+        <!-- Health Gauge Banner -->
+        <div id="health-gauge-box" class="health-gauge-banner gauge-gentle">
+          <div>
+            <div style="font-weight: 800; font-size: 1rem;" id="health-gauge-title">🟢 Comfortable & Harmonious</div>
+            <div style="font-size: 0.85rem;" id="health-gauge-desc">Steady and peaceful memorization pace.</div>
+          </div>
+          <button id="btn-rebaseline-open" class="btn-rebaseline" style="display: none;">
+            ⚙️ 1-Click Re-baseline Date
+          </button>
+        </div>
+
+        <!-- Granular Breakdown per Scripture -->
+        <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 24px 0 12px 0;">Required Daily Pace per Scripture to Meet Deadline:</h3>
+        <div id="catchup-scriptures-breakdown" style="display: flex; flex-direction: column; gap: 10px;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TAB 5: SACRED BADGES & LEVELS -->
+    <section id="tab-badges" class="tab-panel">
+      <!-- Sacred Level Banner -->
+      <div class="hero-nudge-card" style="background: linear-gradient(135deg, #ede9fe 0%, #fef3c7 100%);">
+        <div class="nudge-left">
+          <div id="badges-level-icon" class="nudge-icon">👑</div>
+          <div>
+            <div id="badges-level-sanskrit" class="brand-title" style="color: #4c1d95; font-size: 1.4rem;">जिज्ञासु</div>
+            <div id="badges-level-title" style="font-weight: 700; color: #1e1b18;">Level 1 · The Seeker of Wisdom</div>
+            <div id="badges-level-progress" style="font-size: 0.82rem; color: #6b7280;">0 of 25 shlokas for next level</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 20-Shloka Micro Badges Grid -->
+      <div class="section-title">
+        <span>🏆 20-Shloka Micro-Badges for Each Scripture</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Unlocked automatically as you memorize</span>
+      </div>
+      <div id="micro-badges-grid" class="badges-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+
+    <!-- TAB 6: SEPARATE FAMILY CIRCLE TAB (NO DEMOTIVATING COMPETITION) -->
+    <section id="tab-family" class="tab-panel">
+      <div class="family-hero">
+        <h2>🌸 Family Sadhana Sanctuary</h2>
+        <p>A sacred, peaceful space celebrating our family's collective recitation journey without ranking or pressure.</p>
+      </div>
+
+      <!-- Household Milestones -->
+      <div class="stats-grid" style="margin-bottom: 30px;">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef3c7; color: #d97706;">🏠</div>
+          <div>
+            <div id="family-total-shlokas" class="stat-val">0</div>
+            <div class="stat-lbl">Family Shlokas Memorized Together</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #eff6ff; color: #2563eb;">⏱️</div>
+          <div>
+            <div id="family-total-hours" class="stat-val">0h</div>
+            <div class="stat-lbl">Hours Chanted as a Household</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef2f2; color: #ef4444;">🔥</div>
+          <div>
+            <div id="family-max-streak" class="stat-val">0 Days</div>
+            <div class="stat-lbl">Family Streak Harmony</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <span>👨‍👩‍👧‍👦 Family Members</span>
+        <button id="btn-add-member-modal" class="btn-edit-count">➕ Add Family Member</button>
+      </div>
+
+      <!-- Non-judgmental Individual Member Cards -->
+      <div id="family-members-cards-container" class="family-milestones-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+
+    <!-- TAB 7: GOOGLE SHEETS CLOUD SYNC & SETTINGS -->
+    <section id="tab-settings" class="tab-panel">
+      <div class="catchup-card">
+        <h2 style="font-family: var(--font-serif); margin-bottom: 12px;">⚙️ Real-Time Google Sheets Backend (100% Free Forever)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
+          Connect your Google Account to automatically create and sync all progress to a free Google Sheet in your Google Drive. All family devices stay up to date in real time!
+        </p>
+        <!-- Curriculum Start & End Dates -->
+        <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 12px;">Curriculum Timeline Settings</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 16px;">
+            <div>
+              <label class="form-label">Curriculum Start Date</label>
+              <input type="date" id="settings-start-date" class="form-input">
+            </div>
+            <div>
+              <label class="form-label">Target Completion Date (10 Months Default)</label>
+              <input type="date" id="settings-end-date" class="form-input">
+            </div>
+          </div>
+          <button id="btn-save-settings-dates" class="btn-primary" style="width: auto;">
+            💾 Save Timeline Settings
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- MODAL: ADVANCE / LOG SHLOKAS -->
+  <div id="modal-log-shlokas" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-scripture-name" class="modal-title">📖 Log Recitation</h3>
+        <button id="modal-close-btn" class="btn-close">&times;</button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">How many new shlokas memorized today?</label>
+        <input type="number" id="modal-delta-shlokas" class="form-input" min="1" value="2">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Chanting Duration (Minutes)</label>
+        <input type="number" id="modal-duration" class="form-input" min="1" value="15">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Notes & Reflection (Optional)</label>
+        <input type="text" id="modal-notes" class="form-input" placeholder="e.g. Recited with morning prayer, clear pronunciation">
+      </div>
+      <button id="modal-submit-advance-btn" class="btn-primary">
+        ✨ Save & Celebrate Shlokas!
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: SET EXACT PROGRESS COUNT -->
+  <div id="modal-set-exact" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-exact-title" class="modal-title">✏️ Update Exact Shlokas</h3>
+        <button id="modal-exact-close-btn" class="btn-close">&times;</button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Total Shlokas Memorized So Far:</label>
+        <input type="number" id="modal-exact-count" class="form-input" min="0">
+        <span id="modal-exact-max-hint" style="font-size: 0.8rem; color: var(--text-muted);">Max: 700</span>
+      </div>
+      <button id="modal-exact-submit-btn" class="btn-primary">
+        💾 Update Progress
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD FAMILY MEMBER -->
+  <div id="modal-add-member" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">➕ Add Family Member</h3>
+        <button id="modal-member-close-btn" class="btn-close">&times;</button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Name</label>
+        <input type="text" id="new-member-name" class="form-input" placeholder="e.g. Aarav or Priya">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Role</label>
+        <select id="new-member-role" class="form-select">
+          <option value="Child">Child (Super Shloka Hero)</option>
+          <option value="Parent">Parent</option>
+          <option value="Family Member">Family Member</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Avatar Emoji</label>
+        <select id="new-member-avatar" class="form-select">
+          <option value="🪔">🪔 Sacred Diya</option>
+          <option value="🌸">🌸 Lotus Blossom</option>
+          <option value="🏹">🏹 Mighty Arjuna</option>
+          <option value="🚩">🚩 Hanuman Flag</option>
+          <option value="🦚">🦚 Peacock Feather</option>
+          <option value="🐘">🐘 Lord Ganesha</option>
+          <option value="☀️">☀️ Surya Radiance</option>
+        </select>
+      </div>
+      <button id="btn-save-new-member" class="btn-primary">
+        🌸 Add to Family Circle
+      </button>
+    </div>
+  </div>
+
+  <!-- CELEBRATION TOAST & CONFETTI NOTIFICATION -->
+  <div id="celebration-toast" class="celebration-toast">
+    <div id="toast-icon" style="font-size: 2.2rem;">🏆</div>
+    <div>
+      <div id="toast-title" style="font-weight: 800; font-size: 1rem; color: #fde68a;">Badge Unlocked!</div>
+      <div id="toast-message" style="font-size: 0.85rem; color: #e5e7eb;">You've completed 20 shlokas!</div>
+    </div>
+  </div>
+
+  <!-- APP CONTROLLER MODULE -->
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
