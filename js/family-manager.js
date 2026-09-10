@@ -1,7 +1,7 @@
 // Family Member Management, Independent Progress & Collective Household Sadhana
 
-import { SCRIPTURES, TOTAL_CURRICULUM_SHLOKAS } from './scriptures-data.js';
-import { getSacredLevel } from './badges-data.js';
+import { SCRIPTURES, TOTAL_CURRICULUM_SHLOKAS } from '/js/scriptures-data.js';
+import { getSacredLevel } from '/js/badges-data.js';
 
 const STORAGE_KEY = 'nitya_patha_family_v2';
 
