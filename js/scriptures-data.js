@@ -3,9 +3,9 @@
 export const SCRIPTURES = [
   {
     id: 'bhagavad_gita',
-    title: 'Bhagavad Gita',
+    title: 'Srimad Bhagavad Gita',
     titleDevanagari: 'श्रीमद्भगवद्गीता',
-    shortTitle: 'Gita',
+    shortTitle: 'BhagavadGita',
     subtitle: '18 Chapters · 700 Sacred Verses',
     category: 'Epic Scriptures',
     totalShlokas: 700,
@@ -56,7 +56,7 @@ export const SCRIPTURES = [
     ]
   },
   {
-    id: 'vishnu_sahasranama',
+    id: 'sri_vishnu_sahasranamam',
     title: 'Sri Vishnu Sahasranamam',
     titleDevanagari: 'श्रीविष्णुसहस्रनामस्तोत्रम्',
     shortTitle: 'Vishnu Sahasra',
@@ -80,10 +80,10 @@ export const SCRIPTURES = [
     ]
   },
   {
-    id: 'lalita_sahasranama',
+    id: 'sri_lalita_sahasranamam',
     title: 'Sri Lalita Sahasranamam',
     titleDevanagari: 'श्रीललितासहस्रनामस्तोत्रम्',
-    shortTitle: 'Lalita Sahasra',
+    shortTitle: 'Lalita Sahasram',
     subtitle: '183 Stotra Shlokas · 1,000 Names of Divine Mother',
     category: 'Sahasranama & Stotras',
     totalShlokas: 183,
@@ -117,10 +117,10 @@ export const SCRIPTURES = [
     ]
   },
   {
-    id: 'soundarya_lahari',
+    id: 'soundaryalahari',
     title: 'Soundaryalahari',
     titleDevanagari: 'सौन्दर्यलहरी',
-    shortTitle: 'Soundarya',
+    shortTitle: 'SoundaryaLahari',
     subtitle: '100 Shlokas by Sri Adi Shankaracharya',
     category: 'Stotras',
     totalShlokas: 100,
@@ -133,10 +133,10 @@ export const SCRIPTURES = [
     ]
   },
   {
-    id: 'sivananda_lahari',
+    id: 'sivanandalahari',
     title: 'Sivanandalahari',
     titleDevanagari: 'शिवानन्दलहरी',
-    shortTitle: 'Sivananda',
+    shortTitle: 'SivanandaLahari',
     subtitle: '100 Shlokas of Devotion to Lord Shiva',
     category: 'Stotras',
     totalShlokas: 100,
@@ -156,7 +156,7 @@ export const SCRIPTURES = [
     subtitle: '100 Shlokas · Complete Valmiki Ramayana Summary',
     category: 'Epic Scriptures',
     totalShlokas: 100,
-    icon: '🏹',
+    icon: '🐒',
     color: '#059669', // emerald
     chapters: [
       { num: 1, name: 'Bala & Ayodhya Kanda (1-25)', nameSanskrit: 'बाल-अयोध्याकाण्डौ (श्लोकाः १-२५)', shlokas: 25, startShloka: 1, endShloka: 25 },
