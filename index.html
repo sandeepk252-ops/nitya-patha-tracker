@@ -38,7 +38,7 @@
         <div class="profile-pill" title="Switch active family member profile">
           <span id="header-member-avatar">🪔</span>
           <select id="member-select" class="profile-select">
-            <!-- Dynamic member list -->
+            <!-- Dynamic member list populated by app.js -->
           </select>
         </div>
 
@@ -153,10 +153,9 @@
         <button id="btn-jump-to-scriptures" class="btn-edit-count">View All Chapters</button>
       </div>
       <div id="dashboard-scriptures-grid" class="scriptures-grid">
-        <!-- Rendered dynamically -->
+        <!-- Rendered dynamically by app.js -->
       </div>
     </section>
-
 
     <!-- TAB 2: THE 9 SCRIPTURES & SHLOKAS -->
     <section id="tab-scriptures" class="tab-panel">
@@ -165,10 +164,9 @@
         <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">Click "Memorized +1" or update exact shloka count</span>
       </div>
       <div id="full-scriptures-grid" class="scriptures-grid">
-        <!-- Full interactive scripture cards rendered dynamically -->
+        <!-- Full interactive scripture cards rendered dynamically by app.js -->
       </div>
     </section>
-
 
     <!-- TAB 3: CALENDAR & DATE JUMPER -->
     <section id="tab-calendar" class="tab-panel">
@@ -198,7 +196,6 @@
         </div>
       </div>
     </section>
-
 
     <!-- TAB 4: DYNAMIC CATCH-UP & EFFORT ESTIMATOR -->
     <section id="tab-catchup" class="tab-panel">
@@ -252,7 +249,6 @@
       </div>
     </section>
 
-
     <!-- TAB 5: SACRED BADGES & LEVELS -->
     <section id="tab-badges" class="tab-panel">
       <!-- Sacred Level Banner -->
@@ -277,8 +273,7 @@
       </div>
     </section>
 
-
-    <!-- TAB 6: SEPARATE FAMILY CIRCLE TAB (NO DEMOTIVATING COMPETITION) -->
+    <!-- TAB 6: FAMILY CIRCLE TAB -->
     <section id="tab-family" class="tab-panel">
       <div class="family-hero">
         <h2>🌸 Family Sadhana Sanctuary</h2>
@@ -323,11 +318,10 @@
       </div>
     </section>
 
-
     <!-- TAB 7: GOOGLE SHEETS CLOUD SYNC & SETTINGS -->
     <section id="tab-settings" class="tab-panel">
       <div class="catchup-card">
-        <h2 style="font-family: var(--font-serif); margin-bottom: 12px;">⚙️ Real-Time Google Sheets Backend (100% Free Forever)</h2>
+        <h2 style="font-family: var(--font-serif); margin-bottom: 12px;">⚙️ Real-Time Google Sheets Backend</h2>
         <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
           Connect your Google Account to automatically create and sync all progress to a free Google Sheet in your Google Drive. All family devices stay up to date in real time!
         </p>
@@ -336,7 +330,7 @@
         <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;">
           <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 8px;">Method 1: Direct Google Account Sign-In (Recommended)</h3>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
-            Configured with Google Client ID: <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;">412232690127-f121e1ujes9gs5snu93s30ulguvtk8la.apps.googleusercontent.com</code>
+            Configured with Google OAuth Client ID Sync.
           </p>
           <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
             <button id="btn-google-signin" class="btn-primary" style="width: auto;">
@@ -379,36 +373,6 @@
           <button id="btn-save-settings-dates" class="btn-primary" style="width: auto;">
             💾 Save Timeline Settings
           </button>
-        </div>
-        <!-- Google OAuth Sign-in -->
-        <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;">
-          <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 8px;">Method 1: Direct Google Account Sign-In (Recommended)</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
-            Configured with Google Client ID: <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;"><!--412232690127-f121e1ujes9gs5snu93s30ulguvtk8la.apps.googleusercontent.com --></code>
-          </p>
-          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <button id="btn-google-signin" class="btn-primary" style="width: auto;">
-              🔑 Sign in with Google
-            </button>
-            <button id="btn-google-signout" class="btn-edit-count" style="display: none;">
-              Sign Out
-            </button>
-            <span id="sync-status-indicator" style="font-size: 0.88rem; font-weight: 600; color: var(--text-muted);">
-              Status: Offline (Local Storage)
-            </span>
-          </div>
-        </div>
-
-        <!-- Optional Apps Script Endpoint for zero-login tablets/kids -->
-        <div style="background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 20px; margin-bottom: 24px;">
-          <h3 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 8px;">Method 2: Google Apps Script Webhook (Zero Login for Kids' Tablets)</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
-            If you deploy the bundled <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">google-sheets-script.gs</code> web app, paste the URL below for instant 1-click sync without logging into Google on every child's device:
-          </p>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <input type="url" id="gas-url-input" class="form-input" placeholder="https://script.google.com/macros/s/.../exec" style="flex: 1; min-width: 250px;">
-            <button id="btn-save-gas-url" class="btn-primary" style="width: auto;">Save & Sync</button>
-          </div>
         </div>
       </div>
     </section>
@@ -496,7 +460,7 @@
     </div>
   </div>
 
-  <!-- CELEBRATION TOAST & CONFETTI NOTIFICATION -->
+  <!-- CELEBRATION TOAST & NOTIFICATION -->
   <div id="celebration-toast" class="celebration-toast">
     <div id="toast-icon" style="font-size: 2.2rem;">🏆</div>
     <div>
