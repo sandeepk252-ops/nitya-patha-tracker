@@ -1,7 +1,7 @@
 {
   "name": "Nitya Patha - Real-Time Sanskrit Memorization Tracker",
   "short_name": "Nitya Patha",
-  "description": "Track individual and family memorization of the 8 sacred Sanskrit scriptures with Google Sheets backend and gamified streaks.",
+  "description": "Track individual and family memorization of the 9 sacred Sanskrit scriptures with Google Sheets backend and gamified streaks.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#1e1b18",
