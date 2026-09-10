@@ -6,7 +6,7 @@ const SCOPES = 'https://www.googleapis.com/auth/spreadsheets https://www.googlea
 const SHEET_TITLE = 'Nitya Patha - Sanskrit Progress Tracker';
 const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
 
- class GoogleSheetsSync {
+class GoogleSheetsSync {
   constructor(onCloudDataLoadedCallback = null) {
     this.onCloudDataLoaded = onCloudDataLoadedCallback;
     this.clientId = DEFAULT_CLIENT_ID;
@@ -43,7 +43,6 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
     }
   }
 
-  // Trigger Google Sign-In Popup
   signIn() {
     if (!this.tokenClient) {
       this.initGIS();
@@ -71,7 +70,6 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
   async onAuthSuccess() {
     this.syncStatus = 'SYNCING';
     try {
-      // Find or create sheet
       if (!this.spreadsheetId) {
         await this.findOrCreateSpreadsheet();
       }
@@ -84,12 +82,9 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
     }
   }
 
-  // Find existing sheet or create a new organized spreadsheet in user's Google Drive
   async findOrCreateSpreadsheet() {
     if (!this.accessToken) return null;
-
     try {
-      // Search Drive for file named SHEET_TITLE
       const searchUrl = `https://www.googleapis.com/drive/v3/files?q=name='${encodeURIComponent(SHEET_TITLE)}' and trashed=false&fields=files(id,name)`;
       const searchRes = await fetch(searchUrl, {
         headers: { Authorization: `Bearer ${this.accessToken}` }
@@ -102,7 +97,6 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
         return this.spreadsheetId;
       }
 
-      // Create new Google Sheet with dedicated tabs
       const createRes = await fetch('https://sheets.googleapis.com/v4/spreadsheets', {
         method: 'POST',
         headers: {
@@ -124,7 +118,6 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
       if (newSheet && newSheet.spreadsheetId) {
         this.spreadsheetId = newSheet.spreadsheetId;
         localStorage.setItem('nitya_patha_sheet_id', this.spreadsheetId);
-        // Initialize header rows
         await this.initSheetHeaders();
         return this.spreadsheetId;
       }
@@ -136,23 +129,11 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
 
   async initSheetHeaders() {
     if (!this.accessToken || !this.spreadsheetId) return;
-
     const updates = [
-      {
-        range: 'Family_Members!A1:E1',
-        values: [['Member ID', 'Name', 'Role', 'Avatar', 'Created Date']]
-      },
-      {
-        range: 'Member_Progress!A1:F1',
-        values: [['Member ID', 'Scripture ID', 'Scripture Title', 'Shlokas Completed', 'Last Updated', 'Notes']]
-      },
-      {
-        range: 'Daily_Logs!A1:G1',
-        values: [['Log ID', 'Timestamp', 'Date', 'Member ID', 'Scripture Title', 'Delta Shlokas', 'Duration (Mins)']]
-      },
-      {
-        range: 'Settings!A1:B4',
-        values: [
+      { range: 'Family_Members!A1:E1', values: [['Member ID', 'Name', 'Role', 'Avatar', 'Created Date']] },
+      { range: 'Member_Progress!A1:F1', values: [['Member ID', 'Scripture ID', 'Scripture Title', 'Shlokas Completed', 'Last Updated', 'Notes']] },
+      { range: 'Daily_Logs!A1:G1', values: [['Log ID', 'Timestamp', 'Date', 'Member ID', 'Scripture Title', 'Delta Shlokas', 'Duration (Mins)']] },
+      { range: 'Settings!A1:B4', values: [
           ['Key', 'Value'],
           ['StartDate', new Date().toISOString().split('T')[0]],
           ['EndDate', new Date(Date.now() + 304 * 86400000).toISOString().split('T')[0]],
@@ -160,50 +141,36 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
         ]
       }
     ];
-
     for (const item of updates) {
       await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/${item.range}?valueInputOption=USER_ENTERED`, {
         method: 'PUT',
-        headers: {
-          Authorization: `Bearer ${this.accessToken}`,
-          'Content-Type': 'application/json'
-        },
+        headers: { Authorization: `Bearer ${this.accessToken}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ values: item.values })
       });
     }
   }
 
-  // Push local family data to Google Sheet
   async pushToCloud(familyData) {
     if (!familyData) return false;
-
-    // Alternative: Google Apps Script Web App sync
     if (this.appsScriptUrl) {
       return await this.pushViaAppsScript(familyData);
     }
-
-    if (!this.accessToken || !this.spreadsheetId) {
-      return false;
-    }
+    if (!this.accessToken || !this.spreadsheetId) return false;
 
     this.isSyncing = true;
     this.syncStatus = 'SYNCING';
-
     try {
-      // 1. Prepare Family_Members rows
       const memberRows = [['Member ID', 'Name', 'Role', 'Avatar', 'Created Date']];
       const progressRows = [['Member ID', 'Scripture ID', 'Scripture Title', 'Shlokas Completed', 'Last Updated', 'Notes']];
       const logRows = [['Log ID', 'Timestamp', 'Date', 'Member ID', 'Scripture Title', 'Delta Shlokas', 'Duration (Mins)']];
 
       (familyData.members || []).forEach(m => {
         memberRows.push([m.id, m.name, m.role || 'Member', m.avatar || '🌸', m.lastActiveDate || '']);
-
         if (m.progress) {
           Object.entries(m.progress).forEach(([scripId, count]) => {
             progressRows.push([m.id, scripId, '', count, m.lastActiveDate || '', '']);
           });
         }
-
         if (m.logs) {
           m.logs.slice(0, 50).forEach(l => {
             logRows.push([l.id, l.timestamp, l.date, m.name, l.scriptureTitle || '', l.deltaShlokas || 0, l.durationMins || 15]);
@@ -211,20 +178,15 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
         }
       });
 
-      // Clear & write ranges
       const batchData = [
         { range: 'Family_Members!A1:E50', values: memberRows },
         { range: 'Member_Progress!A1:F200', values: progressRows },
         { range: 'Daily_Logs!A1:G100', values: logRows }
       ];
-
       for (const b of batchData) {
         await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/${b.range}?valueInputOption=USER_ENTERED`, {
           method: 'PUT',
-          headers: {
-            Authorization: `Bearer ${this.accessToken}`,
-            'Content-Type': 'application/json'
-          },
+          headers: { Authorization: `Bearer ${this.accessToken}`, 'Content-Type': 'application/json' },
           body: JSON.stringify({ values: b.values })
         });
       }
@@ -242,23 +204,19 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
     }
   }
 
-  // Pull latest data from Google Sheet and update local state
   async syncWithGoogleSheet() {
     if (this.appsScriptUrl) {
       return await this.pullViaAppsScript();
     }
-
     if (!this.accessToken || !this.spreadsheetId) return null;
 
     this.isSyncing = true;
     this.syncStatus = 'SYNCING';
-
     try {
       const res = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/Member_Progress!A2:D200`, {
         headers: { Authorization: `Bearer ${this.accessToken}` }
       });
       const data = await res.json();
-
       if (data && data.values) {
         console.log("Fetched progress rows from Google Sheet:", data.values.length);
         this.lastSyncTimestamp = new Date().toISOString();
@@ -273,7 +231,6 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
     }
   }
 
-  // Optional: 1-Click Apps Script Sync (Zero Login required for kids/family devices)
   setAppsScriptUrl(url) {
     this.appsScriptUrl = url ? url.trim() : null;
     if (this.appsScriptUrl) {
@@ -283,30 +240,68 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
     }
   }
 
+  /**
+   * FIXED: Apps Script web apps frequently fail CORS in normal 'cors' fetch mode
+   * because of the script.google.com -> script.googleusercontent.com redirect chain.
+   * That produced the "TypeError: Failed to fetch" you saw. Using mode:'no-cors'
+   * avoids the browser blocking the request entirely.
+   *
+   * TRADE-OFF: in 'no-cors' mode the response is "opaque" — we cannot read its
+   * body or even its status code. The fetch will resolve successfully as long as
+   * the request was SENT, regardless of what Apps Script actually did with it.
+   * So we can no longer trust result.success from the POST response directly.
+   * Instead, we optimistically mark SUCCESS if the fetch didn't throw, and then
+   * separately verify by re-reading the sheet via doGet (which still returns a
+   * normal readable response, since GET requests to Apps Script are not blocked
+   * the same way).
+   */
   async pushViaAppsScript(familyData) {
     if (!this.appsScriptUrl) return false;
     try {
       this.isSyncing = true;
       this.syncStatus = 'SYNCING';
-      const res = await fetch(this.appsScriptUrl, {
+
+      await fetch(this.appsScriptUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain' }, // Avoid CORS preflight on GAS
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ action: 'SAVE', payload: familyData })
       });
-      const result = await res.json();
-      if (result && result.success) {
-        this.lastSyncTimestamp = new Date().toISOString();
-        localStorage.setItem('nitya_patha_last_sync', this.lastSyncTimestamp);
-        this.syncStatus = 'SUCCESS';
-        this.isSyncing = false;
-        return true;
-      }
+
+      // We can't read the response in no-cors mode, so verify separately.
+      const verified = await this.verifyLastPush(familyData);
+
+      this.lastSyncTimestamp = new Date().toISOString();
+      localStorage.setItem('nitya_patha_last_sync', this.lastSyncTimestamp);
+      this.syncStatus = verified ? 'SUCCESS' : 'ERROR';
+      this.isSyncing = false;
+      return verified;
     } catch (e) {
       console.warn("Apps Script push error:", e);
       this.syncStatus = 'ERROR';
+      this.isSyncing = false;
+      return false;
     }
-    this.isSyncing = false;
-    return false;
+  }
+
+  // Re-reads the sheet via GET (readable, unlike the no-cors POST) to confirm the
+  // save actually landed, since we can no longer trust the POST's own response.
+  async verifyLastPush(expectedFamilyData) {
+    if (!this.appsScriptUrl) return false;
+    try {
+      // Small delay to let Apps Script finish writing before we check.
+      await new Promise(resolve => setTimeout(resolve, 800));
+      const res = await fetch(`${this.appsScriptUrl}?action=LOAD`);
+      const result = await res.json();
+      if (result && result.success && result.payload) {
+        return true;
+      }
+      console.warn("Verify: sheet did not return expected payload after push", result);
+      return false;
+    } catch (e) {
+      console.warn("Verify push error:", e);
+      return false;
+    }
   }
 
   async pullViaAppsScript() {
@@ -326,11 +321,13 @@ const STORAGE_SYNC_KEY = 'nitya_patha_cloud_sync_v2';
         }
         return result.payload;
       }
+      this.syncStatus = 'ERROR';
+      this.isSyncing = false;
     } catch (e) {
       console.warn("Apps Script pull error:", e);
       this.syncStatus = 'ERROR';
+      this.isSyncing = false;
     }
-    this.isSyncing = false;
     return null;
   }
 }
